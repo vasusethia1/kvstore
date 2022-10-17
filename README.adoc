@@ -2,6 +2,36 @@
 
 image:https://img.shields.io/badge/vert.x-4.3.4-purple.svg[link="https://vertx.io"]
 
+Architecture of KV Store API
+
+image:https://i.imgur.com/hns8yVH.png[]
+
+The above code uses some micro optimizations techniques. The endpoints exposed are as follows:
+
+// this gets the key
+POST /get: Body:- 
+
+{ "key": "key_vale"}
+
+//this inserts the key if it doesn't exists or else it updates it
+POST /put: Body:- 
+
+{
+    "key": "key",
+    "value": "value",
+    "ttl": 100
+}
+
+//DELETES the key
+
+POST /delete: Body:- 
+{
+  "key": "key_value"
+ }
+ 
+Created a periodic timer to delete expired keys in the CleanUpJob Verticle with a value of 6 hours.
+
+
 This application was generated using http://start.vertx.io
 
 == Building
