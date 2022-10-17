@@ -12,8 +12,8 @@ public class PgPoolConnection {
       .setPort(5432)
       .setHost("localhost")
       .setDatabase("kvstore")
-      .setUser("kojo")
-      .setPassword("kojo@123");
+      .setUser("test")
+      .setPassword("test");
 
     // Pool options
     PoolOptions poolOptions = new PoolOptions()
